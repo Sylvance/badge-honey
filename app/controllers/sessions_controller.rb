@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :authenticate_request
+    skip_before_action :build_context, only: [:new, :create]
 
     def new
     end

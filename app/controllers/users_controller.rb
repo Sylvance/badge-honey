@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-skip_before_action :authenticate_request, only: [:new, :create]
+  skip_before_action :authenticate_request, only: [:new, :create]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    ActiveSupport::Notifications.instrument "index.event"
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    sleep 3
   end
 
   # GET /users/new

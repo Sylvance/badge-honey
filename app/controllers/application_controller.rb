@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
                     :logged_in?
 
     before_action :authenticate_request
+    before_action :build_context
 
     def current_user
         if session[:user_id]
@@ -24,5 +25,13 @@ class ApplicationController < ActionController::Base
         if !logged_in?
             redirect_to login_path, notice: "Log in first to get access!"
         end
+    end
+
+    # place below authenticate request
+    def build_context
+        Honeybadger.context({
+            user_id: current_user.id,
+            user_email: current_user.email
+        })
     end
 end

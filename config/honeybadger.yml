@@ -1,0 +1,5 @@
+---
+api_key: 'f1916276'
+env: 'production'
+breadcrumbs:
+  enabled: true
