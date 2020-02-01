@@ -1,0 +1,17 @@
+<div class="">
+    <%= form_tag(sessions_path, {class: ""}) do |form| %>
+        <h1 class="">Login</h1>
+        <p class="notice text-blue-500"><%= notice %></p>
+        <div class="">
+        <%= label_tag :email, 'Email', class: "" %>
+        <%= text_field_tag :email, nil, class: "",  placeholder: 'Email' %>
+        </div>
+        <div class="">
+        <%= label_tag :password, 'Password', class: "" %>
+        <%= password_field_tag :password, nil, class: "",  placeholder: 'Password' %>
+        </div>
+        <div class="actions">
+        <%= submit_tag "Login", class: "" %>
+        </div>
+    <% end %>
+</div>
